@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="company.petron.imei.MainActivity_imei">
+
+    <item android:id="@+id/ayuda"
+        android:title="@string/ayuda"
+        android:orderInCategory="3"
+        />
+    <item android:id="@+id/votar"
+        android:title="@string/votar"
+        android:orderInCategory="4"
+        />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Imei info</string>
+    <string name="action_settings">Salir</string>
+    <string name="imei">Imei:</string>
+    <string name="nombre_operador">Operador:</string>
+    <string name="numero_operador">Num op:</string>
+    <string name="version_sof">VSW:</string>
+    <string name="numero_serie_sim">SN SIM: </string>
+    <string name="codigo_pais">País: </string>
+    <string name="id_abonado">"Id abonado: </string>
+    <string name="ayuda">Ayuda</string>
+    <string name="votar">Votar</string>
+</resources>
