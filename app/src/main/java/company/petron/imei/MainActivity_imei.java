@@ -1,30 +1,20 @@
 package company.petron.imei;
 
+import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.telecom.TelecomManager;
 import android.telephony.TelephonyManager;
 import android.text.Html;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import com.startapp.android.publish.ads.nativead.NativeAdDetails;
-import com.startapp.android.publish.ads.nativead.NativeAdPreferences;
-import com.startapp.android.publish.ads.nativead.StartAppNativeAd;
-import com.startapp.android.publish.adsCommon.Ad;
+
 import com.startapp.android.publish.adsCommon.StartAppAd;
-import com.startapp.android.publish.adsCommon.StartAppAd.AdMode;
 import com.startapp.android.publish.adsCommon.StartAppSDK;
-import com.startapp.android.publish.adsCommon.VideoListener;
-import com.startapp.android.publish.adsCommon.adListeners.AdDisplayListener;
-import com.startapp.android.publish.adsCommon.adListeners.AdEventListener;
 
 
 public class MainActivity_imei extends AppCompatActivity {
@@ -66,11 +56,31 @@ public class MainActivity_imei extends AppCompatActivity {
         txtpais = (TextView) findViewById(R.id.txtrepais);
         txtidabonado = (TextView) findViewById(R.id.txtreidabonado);
 
-         manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        manager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
 
-            StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         builder.append("Imei : ").append(manager.getDeviceId()).append("\n");
         builder.append("Nombre Operador : ").append(manager.getNetworkOperatorName()).append("\n");
         builder.append("Número del operador : ").append(manager.getNetworkOperator()).append("\n");
@@ -138,12 +148,7 @@ public class MainActivity_imei extends AppCompatActivity {
                        + Html.fromHtml("<br />")+"SN SIM: Número de serie SIM"+ Html.fromHtml("<br />")+"País: Código del país"
                        + Html.fromHtml("<br />")+"Id abonado: Número de identificación del abonado");
                 return true;
-            case R.id.votar:
-                //boton votar
-                Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=company.petron.imei");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uriUrl);
-                startActivity(intent);
-                return true;
+
             case R.id.action_settings:
                 //botón salir
                 MainActivity_imei.this.startAppAd.showAd();
